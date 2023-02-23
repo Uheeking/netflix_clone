@@ -45,6 +45,31 @@ class _DetailScreenState extends State<DetailScreen> {
                           padding: const EdgeInsets.fromLTRB(0, 45, 0, 10),
                           height: 300,
                           child: Image.asset('images/${widget.movie.poster}'),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(7),
+                          child: const Text(
+                            '99% 일치 2019 15+ 시즌 1개',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 13),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(7),
+                          child: Text(
+                            widget.movie.title,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(3),
+                          child: TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: const [],
+                              )),
                         )
                       ],
                     )),
