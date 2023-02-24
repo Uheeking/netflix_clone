@@ -15,7 +15,6 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
-    var like = widget.movie.like;
   }
 
   @override
@@ -67,22 +66,97 @@ class _DetailScreenState extends State<DetailScreen> {
                           padding: const EdgeInsets.all(3),
                           child: TextButton(
                               onPressed: () {},
+                              style: TextButton.styleFrom(
+                                  backgroundColor: Colors.red),
                               child: Row(
-                                children: const [],
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Icon(
+                                    Icons.play_arrow,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    '재생',
+                                    style: TextStyle(color: Colors.white),
+                                  )
+                                ],
                               )),
-                        )
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          child: Text(widget.movie.toString()),
+                        ),
+                        Container(
+                            padding: const EdgeInsets.all(5),
+                            alignment: Alignment.centerLeft,
+                            child: const Text(
+                              '출연 : 현빈, 손예진, 서지혜\n 제작자 : 이정효, 박지은',
+                              style: TextStyle(
+                                  color: Colors.white60, fontSize: 12),
+                            ))
                       ],
                     )),
                   ),
                 )),
-              )
+              ),
+              Positioned(
+                  child: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                foregroundColor: Colors.white,
+              ))
             ],
           ),
-          // makeMenuButton(),
+          Container(
+            color: Colors.black26,
+            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: InkWell(
+                  onTap: () {},
+                  child: Column(children: [
+                    widget.movie.like
+                        ? const Icon(Icons.check)
+                        : const Icon(Icons.add),
+                    const Padding(padding: EdgeInsets.all(5)),
+                    const Text(
+                      '내가 찜한 콘텐츠',
+                      style: TextStyle(fontSize: 11, color: Colors.white60),
+                    )
+                  ]),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Container(
+                  child: Column(children: const [
+                    Icon(Icons.thumb_up),
+                    Padding(padding: EdgeInsets.all(5)),
+                    Text(
+                      '내가 찜한 콘텐츠',
+                      style: TextStyle(fontSize: 11, color: Colors.white60),
+                    )
+                  ]),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: InkWell(
+                  onTap: () {},
+                  child: Column(children: const [
+                    Icon(Icons.send),
+                    Padding(padding: EdgeInsets.all(5)),
+                    Text(
+                      '공유',
+                      style: TextStyle(fontSize: 11, color: Colors.white60),
+                    )
+                  ]),
+                ),
+              ),
+            ]),
+          ),
         ]),
       )),
     );
   }
-
-//   makeMenuButton() {}
 }
